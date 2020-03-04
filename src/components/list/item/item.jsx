@@ -68,7 +68,10 @@ const Item = React.memo(props => {
             <Link to={`/products/${props.id}`}>
               <Button variant='secondary'>View</Button>
             </Link>
-            <Button onClick={toggleEdit}>Edit</Button>
+
+            <Link to={`/products/${props.id}/edit`}>
+              <Button onClick={toggleEdit}>Edit</Button>
+            </Link>
             <Button variant='danger' onClick={onClickDelete}>
               Delete
             </Button>
