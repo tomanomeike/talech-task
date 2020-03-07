@@ -52,7 +52,7 @@ const List = () => {
            >
              EDIT
            </Link>{' '}
-           <button onClick={deleteProduct} className='btn btn-danger'>DELETE</button>
+           <button onClick={() => deleteProduct(product.id)} className='btn btn-danger'>DELETE</button>
          </td>
        </tr>
      ))}
