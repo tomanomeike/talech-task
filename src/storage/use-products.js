@@ -19,11 +19,10 @@ const useProducts = () => {
         products.filter(product => product.id !== id)
       );
     },
-    showProduct: id=> {
-        const products = localStorageClient.getData('products');
-        localStorageClient.setData('products',  products.filter(product => product.id === Number(id)));
-        
-    }
+    getProductById: (id) =>  {
+      const productList = JSON.parse(localStorage.getItem("products"));
+      return productList.filter(product => product.id === Number(id));
+  }
   };
 };
 

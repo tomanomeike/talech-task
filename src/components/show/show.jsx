@@ -1,20 +1,26 @@
 import React from 'react';
-import { Link, useParams } from "react-router-dom";
+import {  useParams } from "react-router-dom";
 import useProducts from '../../storage/use-products';
 
 
 
-const Show = ( ) => {
-  const [product, setProduct] = React.useState({});
-  // const { id } = useParams();
+
+const Show = () => {
+  const { id } = useParams();
   // React.useEffect(() => {
   //   const productList = JSON.parse(localStorage.getItem("products"));
   //   const product = productList.filter(product => product.id === Number(id));
   //   setProduct(product[0]);
   // }, [id]);
 
+ 
 
+const [product, setProduct] = React.useState({})
+const {  getProductById } = useProducts();
 
+React.useEffect(() => {
+    setProduct(getProductById(id))
+}, [id])
 
   return (
     <div>

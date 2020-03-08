@@ -5,27 +5,16 @@ import useProducts from '../../storage/use-products';
 
 
 const List = () => {
-  const { getProducts, deleteProduct, showProduct } = useProducts();
+  const { getProducts, deleteProduct, getProductById } = useProducts();
   const [products, setProducts] = React.useState(getProducts());
-  const { id } = useParams();
+
 
   const onDeleteProduct = (id) => {
     deleteProduct(id);
 
     setProducts(getProducts);
   }
-  const onShow = (id) =>{
-    showProduct(id);
-    setProducts(products, [id]);
-    
-  };
-
-  
-  // React.useEffect(() => {
-  //   const productList = JSON.parse(localStorage.getItem("products"));
-  //   const product = productList.filter(product => product.id === Number(id));
-  //   setProduct(product[0]);
-  // }, [id]);
+ 
 
   return (
     <React.Fragment>
@@ -57,7 +46,7 @@ const List = () => {
          </td>
          <td>
            {' '}
-           <Link onClick={() => onShow(product.id)} 
+           <Link 
              className=' btn btn-secondary'
              to={`/products/${product.id}`}
            >
