@@ -11,10 +11,18 @@ const useProducts = () => {
 
       localStorageClient.setData('products', [...products, product]);
     },
-    deleteProduct: (id) => {
+    deleteProduct: id => {
       const products = localStorageClient.getData('products');
-      localStorageClient.setData(products.filter(product => product.id !== id)
+
+      localStorageClient.setData(
+        'products',
+        products.filter(product => product.id !== id)
       );
+    },
+    showProduct: id=> {
+        const products = localStorageClient.getData('products');
+        localStorageClient.setData('products',  products.filter(product => product.id === Number(id)));
+        
     }
   };
 };

@@ -1,14 +1,31 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import Table from 'react-bootstrap/Table';
 import useProducts from '../../storage/use-products';
 
 
 const List = () => {
-  const { getProducts, deleteProduct } = useProducts();
+  const { getProducts, deleteProduct, showProduct } = useProducts();
+  const [products, setProducts] = React.useState(getProducts());
+  const { id } = useParams();
 
-  const products = getProducts();
- 
+  const onDeleteProduct = (id) => {
+    deleteProduct(id);
+
+    setProducts(getProducts);
+  }
+  const onShow = (id) =>{
+    showProduct(id);
+    setProducts(products, [id]);
+    
+  };
+
+  
+  // React.useEffect(() => {
+  //   const productList = JSON.parse(localStorage.getItem("products"));
+  //   const product = productList.filter(product => product.id === Number(id));
+  //   setProduct(product[0]);
+  // }, [id]);
 
   return (
     <React.Fragment>
@@ -40,7 +57,7 @@ const List = () => {
          </td>
          <td>
            {' '}
-           <Link
+           <Link onClick={() => onShow(product.id)} 
              className=' btn btn-secondary'
              to={`/products/${product.id}`}
            >
@@ -52,7 +69,7 @@ const List = () => {
            >
              EDIT
            </Link>{' '}
-           <button onClick={() => deleteProduct(product.id)} className='btn btn-danger'>DELETE</button>
+           <button onClick={() => onDeleteProduct(product.id)} className='btn btn-danger'>DELETE</button>
          </td>
        </tr>
      ))}

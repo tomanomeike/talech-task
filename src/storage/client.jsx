@@ -23,7 +23,7 @@ storageClient.setData('products',  [
     {
       id: 2,
       name: 'Potatoes',
-      EAN: new Date().getTime(),
+      EAN: Math.floor(Math.random() * Math.floor(100000)),
       type: 'cereals',
       weight: '100',
       color: 'red',
@@ -32,7 +32,7 @@ storageClient.setData('products',  [
     {
       id: 3,
       name: 'Meat',
-      EAN: new Date().getTime(),
+      EAN: Math.floor(Math.random() * Math.floor(100000)),
       type: 'cereals',
       weight: '100',
       color: 'red',
@@ -41,7 +41,7 @@ storageClient.setData('products',  [
     {
       id: 4,
       name: 'Oil',
-      EAN: new Date().getTime(),
+      EAN:Math.floor(Math.random() * Math.floor(100000)),
       type: 'cereals',
       weight: '100',
       color: 'red',
@@ -50,7 +50,7 @@ storageClient.setData('products',  [
     {
       id: 5,
       name: 'Fish',
-      EAN: new Date().getTime(),
+      EAN: Math.floor(Math.random() * Math.floor(100000)),
       type: 'cereals',
       weight: '100',
       color: 'red',
@@ -59,7 +59,7 @@ storageClient.setData('products',  [
     {
       id: 6,
       name: 'Milk',
-      EAN: new Date().getTime(),
+      EAN: Math.floor(Math.random() * Math.floor(100000)),
       type: 'cereals',
       weight: '100',
       color: 'red',
@@ -68,7 +68,7 @@ storageClient.setData('products',  [
     {
       id: 7,
       name: 'Butter',
-      EAN: new Date().getTime(),
+      EAN: Math.floor(Math.random() * Math.floor(100000)),
       type: 'cereals',
       weight: '100',
       color: 'red',
@@ -77,7 +77,7 @@ storageClient.setData('products',  [
     {
       id: 8,
       name: 'Eggs',
-      EAN: new Date().getTime(),
+      EAN: Math.floor(Math.random() * Math.floor(100000)),
       type: 'cereals',
       weight: '100',
       color: 'red',
@@ -86,7 +86,7 @@ storageClient.setData('products',  [
     {
       id: 9,
       name: 'Legumes',
-      EAN: new Date().getTime(),
+      EAN: Math.floor(Math.random() * Math.floor(100000)),
       type: 'cereals',
       weight: '100',
       color: 'red',
@@ -95,7 +95,7 @@ storageClient.setData('products',  [
     {
       id: 10,
       name: 'Yogurt',
-      EAN: new Date().getTime(),
+      EAN: Math.floor(Math.random() * Math.floor(100000)),
       type: 'cereals',
       weight: '100',
       color: 'red',

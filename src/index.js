@@ -17,13 +17,13 @@ ReactDOM.render(
    
       <Route component={App}  exact path="/" />
       <Route component={List}  exact path="/products" />
-      <Route path="/products/:id" component={Show}/>
-      <Route component={Edit}  path="/edit/:id" />
       <Route exact path="/products/create" render={(props) =>
                 <Create {...props} />
             } />
-      {/* <Route component={Show}   path="/show/:id" /> */}
+      <Route component={Show}  path="/products/:id" />
+      <Route component={Edit}   path="/:id/edit" />
   
+      
     </div>
   </Router>, 
 
