@@ -1,5 +1,5 @@
 import React from 'react';
-import List from './components/list/list';
+import Products from '../src/pages/products/products';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
@@ -10,7 +10,7 @@ const App = () => {
     <Router>
       <Switch>
         <Route component={App} exact path='/' />
-        <Route component={List} exact path='/products' />
+        <Route component={Products} exact path='/products' />
       </Switch>
     </Router>
   );
