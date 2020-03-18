@@ -1,30 +1,31 @@
 import React from 'react';
 import Button from 'react-bootstrap/Button';
 import { Redirect } from 'react-router-dom';
+import useProducts from '../../storage/use-products';
+import { Link, useParams } from 'react-router-dom';
+import Form from 'react-bootstrap/Form';
+import './create.css'
 
-const Create = (props) => {
-  // const [newProduct, setNewProduct] = React.useState(
-  //   {
-  //   id: Math.floor(Math.random() * Math.floor(100000)),
-  //   name: props.name,
-  //   EAN: props.EAN,
-  //   type: props.type,
-  //   weight: props.weight,
-  //   color: props.color,
-  //   active: props.active
-
-  // }
-
-  // );
-
-  // const onChange = event => {
-  //   setNewProduct(event.target.value);
-
-  // }
+const Create = (product) => {
+  const { addProduct } = useProducts();
+  // const { id } = useParams();
   const [toProduct, setToProduct] = React.useState(false);
+
+  
+  React.useEffect(() => {
+    setToProduct(addProduct(product));
+  }, [product]);
+
+
+  // const onDeleteProduct = id => {
+  //   deleteProduct(id);
+
+  //   setProducts(getProducts);
+  // };
 
   const onSubmit = e => {
     e.preventDefault();
+    
     const products = JSON.parse(localStorage.getItem('products') || '[]');
 
     const data = {
@@ -38,38 +39,41 @@ const Create = (props) => {
     };
 
     products.unshift(data);
+    // addProduct(product);
     localStorage.setItem('products', JSON.stringify(products));
     setToProduct(true);
   };
 
   return (
-    <div>
+    <div className='create'>
       {toProduct ? <Redirect to='/products' /> : null}
-      <h1>Create</h1>
-      <form onSubmit={onSubmit}>
-        <label htmlFor='name'>Name</label>
-        <input type='text' name='name' />
-        <label htmlFor='name'>EAN</label>
-        <input type='text' name='EAN' />
-        <label htmlFor='name'>Type</label>
-        <input type='text' name='type' />
-        <label htmlFor='name'>Weight</label>
-        <input type='text' name='weight' />
-        <label htmlFor='name'>Color</label>
-        <input type='text' name='color' />
+      <h1>Create new product</h1>
+      <Form onSubmit={onSubmit}>
+        <Form.Label htmlFor='name'>Name</Form.Label>
+        <Form.Control type='text' name='name' />
+        <Form.Label htmlFor='name'>EAN</Form.Label>
+        <Form.Control type='text' name='EAN' />
+        <Form.Label htmlFor='name'>Type</Form.Label>
+        <Form.Control type='text' name='type' />
+        <Form.Label htmlFor='name'>Weight</Form.Label>
+        <Form.Control type='text' name='weight' />
+        <Form.Label htmlFor='name'>Color</Form.Label>
+        <Form.Control type='text' name='color' />
         <div className='form-group form-check'>
           <input type='checkbox' className='form-check-input' name='active' />
-          <label className='form-check-label' htmlFor='active'>
+          <Form.Label className='form-check-label' htmlFor='active'>
             Active
-          </label>
+          </Form.Label>
         </div>
-        <Button type='submit' className='btn btn-info mb-1'>
+        <Button type='submit' className='btn btn-default mr-1 '>
           <span>Save</span>
         </Button>
-        <Button onClick={props.history.goBack} className='btn btn-info mb-1'>
+        <Button 
+        onClick={product.history.goBack}
+         className='btn btn-danger'>
           <span>Cancel</span>
         </Button>
-      </form>
+      </Form>
     </div>
   );
 };

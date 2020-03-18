@@ -1,6 +1,9 @@
 import React from 'react';
 import { useParams, Redirect } from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form';
+import useProducts from '../../storage/use-products';
+import './edit.css'
 
 const Edit = props => {
   const { id } = useParams();
@@ -13,11 +16,11 @@ const Edit = props => {
     color: '',
     active: ''
   });
+  const { getProductById } = useProducts();
 
+ 
   React.useEffect(() => {
-    const productList = JSON.parse(localStorage.getItem('products'));
-    const oneProduct = productList.filter(product => product.id === Number(id));
-    setInputValue(oneProduct[0]);
+    setInputValue(getProductById(id));
   }, [id]);
 
   const onSubmit = e => {
@@ -49,40 +52,40 @@ const Edit = props => {
   };
 
   return (
-    <>
+    <div className='edit'>
       {newProduct ? <Redirect to='/products' /> : null}
       <h1>Edit a product</h1>
-      <form onSubmit={onSubmit}>
-        <label htmlFor='name'>Name</label>
-        <input
+      <Form onSubmit={onSubmit}>
+        <Form.Label htmlFor='name'>Name</Form.Label>
+        <Form.Control
           type='text'
           name='name'
           onChange={onChange}
           value={inputValue.name}
         />
-        <label htmlFor='name'>EAN</label>
-        <input
+        <Form.Label htmlFor='name'>EAN</Form.Label>
+        <Form.Control
           type='text'
           name='EAN'
           onChange={onChange}
           value={inputValue.EAN}
         />
-        <label htmlFor='name'>Type</label>
-        <input
+        <Form.Label htmlFor='name'>Type</Form.Label>
+        <Form.Control
           type='text'
           name='type'
           onChange={onChange}
           value={inputValue.type}
         />
-        <label htmlFor='name'>Weight</label>
-        <input
+        <Form.Label htmlFor='name'>Weight</Form.Label>
+        <Form.Control
           type='text'
           name='weight'
           onChange={onChange}
           value={inputValue.weight}
         />
-        <label htmlFor='name'>Color</label>
-        <input
+        <Form.Label htmlFor='name'>Color</Form.Label>
+        <Form.Control
           type='text'
           name='color'
           onChange={onChange}
@@ -95,20 +98,22 @@ const Edit = props => {
             name='active'
             onChange={onChange}
           />
-          <label className='form-check-label' htmlFor='active'>
+          <Form.Label className='form-check-label' htmlFor='active'>
             Active
-          </label>
+          </Form.Label>
         </div>
 
-        <Button type='submit' className='btn btn-info'>
+        <Button type='submit' className='btn btn-primary mr-2'>
           <span>Save</span>
         </Button>
 
-        <Button className='btn btn-info mb-1' onClick={props.history.goBack}>
+        <Button className='btn btn-danger' onClick={props.history.goBack}>
           <span>Cancel</span>
         </Button>
-      </form>
-    </>
+      </Form>
+      
+      
+    </div>
   );
 };
 export default Edit;

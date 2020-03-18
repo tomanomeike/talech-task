@@ -12,16 +12,16 @@ storageClient.setData('products', [
     id: 1,
     name: 'Pasta',
     EAN: 626262,
-    type: 'cereals',
+    type: 'pasta',
     weight: '100',
-    color: 'red',
+    color: 'yellow',
     checked: false
   },
   {
     id: 2,
     name: 'Potatoes',
-    EAN: Math.floor(Math.random() * Math.floor(100000)),
-    type: 'cereals',
+    EAN:6363363,
+    type: 'vegetables',
     weight: '100',
     color: 'red',
     checked: false
@@ -29,8 +29,8 @@ storageClient.setData('products', [
   {
     id: 3,
     name: 'Meat',
-    EAN: Math.floor(Math.random() * Math.floor(100000)),
-    type: 'cereals',
+    EAN:646464,
+    type: 'meat',
     weight: '100',
     color: 'red',
     checked: false
@@ -38,64 +38,64 @@ storageClient.setData('products', [
   {
     id: 4,
     name: 'Oil',
-    EAN: Math.floor(Math.random() * Math.floor(100000)),
-    type: 'cereals',
+    EAN: 6656565,
+    type: 'fat',
     weight: '100',
-    color: 'red',
+    color: 'yellow',
     checked: false
   },
   {
     id: 5,
     name: 'Fish',
-    EAN: Math.floor(Math.random() * Math.floor(100000)),
-    type: 'cereals',
+    EAN: 67676767,
+    type: 'fish',
     weight: '100',
-    color: 'red',
+    color: 'grey',
     checked: false
   },
   {
     id: 6,
     name: 'Milk',
-    EAN: Math.floor(Math.random() * Math.floor(100000)),
-    type: 'cereals',
+    EAN: 68686868,
+    type: 'milk',
     weight: '100',
-    color: 'red',
+    color: 'white',
     checked: false
   },
   {
     id: 7,
     name: 'Butter',
-    EAN: Math.floor(Math.random() * Math.floor(100000)),
-    type: 'cereals',
+    EAN: 69696969,
+    type: 'fat',
     weight: '100',
-    color: 'red',
+    color: 'yellow',
     checked: false
   },
   {
     id: 8,
     name: 'Eggs',
-    EAN: Math.floor(Math.random() * Math.floor(100000)),
-    type: 'cereals',
+    EAN: 54545454,
+    type: 'eggs',
     weight: '100',
-    color: 'red',
+    color: 'white',
     checked: false
   },
   {
     id: 9,
     name: 'Legumes',
-    EAN: Math.floor(Math.random() * Math.floor(100000)),
-    type: 'cereals',
+    EAN: 1313131,
+    type: 'vegetables',
     weight: '100',
-    color: 'red',
+    color: 'green',
     checked: false
   },
   {
     id: 10,
     name: 'Yogurt',
-    EAN: Math.floor(Math.random() * Math.floor(100000)),
-    type: 'cereals',
+    EAN: 1212121,
+    type: 'milk',
     weight: '100',
-    color: 'red',
+    color: 'white',
     checked: false
   }
 ]);

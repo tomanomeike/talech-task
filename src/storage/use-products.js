@@ -23,6 +23,16 @@ const useProducts = () => {
       const products = localStorageClient.getData('products');
 
       return products.find(product => product.id === Number(id));
+    },
+    updateProductStatus: id => {
+      const products = localStorageClient.getData('products');
+      localStorageClient.setData(
+        'products',
+        (products.map((product) => ({
+          ...product,
+          checked: product.id === id ? !product.checked : product.checked,
+      })))
+      )
     }
   };
 };
