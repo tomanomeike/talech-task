@@ -16,12 +16,14 @@ const Create = (product) => {
     setToProduct(addProduct(product));
   }, [product]);
 
-
-  // const onDeleteProduct = id => {
-  //   deleteProduct(id);
-
-  //   setProducts(getProducts);
-  // };
+  const onCubmit = (props) => {
+    if (!!toProduct) {
+      setToProduct('');
+        props.onSubmit(toProduct);
+    } else {
+        window.alert('Enter name');
+    }
+}
 
   const onSubmit = e => {
     e.preventDefault();
@@ -65,7 +67,7 @@ const Create = (product) => {
             Active
           </Form.Label>
         </div>
-        <Button type='submit' className='btn btn-default mr-1 '>
+        <Button onClick={onCubmit} type='submit' className='btn btn-default mr-1 '>
           <span>Save</span>
         </Button>
         <Button 

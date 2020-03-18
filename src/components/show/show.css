@@ -4,7 +4,3 @@
 p{
     font-weight: 600;
 }
-.item.active {
-    text-decoration-line: line-through;
-    background-color: coral;
-}

@@ -8,20 +8,19 @@ const Show = props => {
   const { id } = useParams();
   const [product, setProduct] = React.useState({});
   const { getProductById } = useProducts();
-  const className = props.checked ? 'item active' : 'item';
 
   React.useEffect(() => {
     setProduct(getProductById(id));
   }, [id]);
 
   return (
-    <div className={className}>
+    <div className="item">
       <h3>{product.name}</h3>
       <p>EAN: {product.EAN}</p>
       <p>Type: {product.type}</p>
       <p>Weight: {product.weight}</p>
       <p>Color: {product.color}</p>
- 
+
       <Link className='btn btn-primary mr-2' to={`/products/${id}/edit`}>
         Edit product
       </Link>
