@@ -2,8 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
 import useProducts from '../../storage/use-products';
-
-
+import './item.css'
 
 const Item = props => {
     const { getProducts, deleteProduct, updateProductStatus } = useProducts();
@@ -11,7 +10,7 @@ const Item = props => {
   
     const onDeleteProduct = id => {
       if (window.confirm('Are you sure?')) {
-        deleteProduct(props.id);
+        deleteProduct(props.product.id);
       }
       setProducts(getProducts);
     };
