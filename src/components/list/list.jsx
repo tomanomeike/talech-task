@@ -44,22 +44,7 @@ const List = product => {
 
             <tbody>
               {products.map(product => (
-                <Item
-                  product={product}
-                  // onDeleteProduct={onDeleteProduct}
-                  // onUpdateProductStatus={onUpdateProductStatus}
-
-                  //  key={product.id}
-                  //  id={product.id}
-                  //  name={product.name}
-                  //  EAN={product.EAN}
-                  //  type={product.type}
-                  //  weight={product.weight}
-                  //  color={product.color}
-                  //  checked={product.checked}
-                  //  onDeleteProduct={onDeleteProduct}
-                  //  onUpdateProductStatus={onUpdateProductStatus}
-                />
+                <Item product={product} />
               ))}
             </tbody>
           </Table>

@@ -2,28 +2,28 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
 import useProducts from '../../storage/use-products';
-import './item.css'
+import './item.css';
 
 const Item = props => {
-    const { getProducts, deleteProduct, updateProductStatus } = useProducts();
-    const [products, setProducts] = React.useState(getProducts());
-  
-    const onDeleteProduct = id => {
-      if (window.confirm('Are you sure?')) {
-        deleteProduct(props.product.id);
-      }
-      setProducts(getProducts);
-    };
-  
-    const onUpdateProductStatus = id => {
-      updateProductStatus(id);
-      setProducts(getProducts);
-    };
+  const { getProducts, deleteProduct, updateProductStatus } = useProducts();
+  const [products, setProducts] = React.useState(getProducts());
+
+  const onDeleteProduct = id => {
+    if (window.confirm('Are you sure?')) {
+      deleteProduct(id);
+    }
+    setProducts(getProducts);
+  };
+
+  const onUpdateProductStatus = id => {
+    updateProductStatus(id);
+    setProducts(getProducts);
+  };
   return (
     <React.Fragment>
       <tr
         className={props.product.checked ? 'product disabled' : 'product'}
-        key={props.id}
+        key={props.product.id}
       >
         <td>{props.product.name}</td>
         <td>{props.product.EAN}</td>
@@ -40,15 +40,20 @@ const Item = props => {
         </td>
         <td>
           {' '}
-          <Link className=' btn btn-secondary' to={`/products/${props.product.id}`}>
-            VIEW
+          <Link to={`/products/${props.product.id}`}>
+            <Button className=' btn btn-secondary' disabled={false}>
+              VIEW
+            </Button>
           </Link>{' '}
-          <Link className='btn btn-primary' to={`/products/${props.product.id}/edit`}>
-            EDIT
+          <Link to={`/products/${props.product.id}/edit`}>
+            <Button className='btn btn-primary' disabled={false}>
+              EDIT
+            </Button>
           </Link>{' '}
           <Button
             onClick={() => onDeleteProduct(props.product.id)}
             className='btn btn-danger'
+            disabled={false}
           >
             DELETE
           </Button>
