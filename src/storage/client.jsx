@@ -22,7 +22,7 @@ storageClient.setData('products', [
     name: 'Potatoes',
     EAN:6363363,
     type: 'vegetables',
-    weight: '100',
+    weight: '200',
     color: 'red',
     checked: false
   },
@@ -31,7 +31,7 @@ storageClient.setData('products', [
     name: 'Meat',
     EAN:646464,
     type: 'meat',
-    weight: '100',
+    weight: '300',
     color: 'red',
     checked: false
   },
@@ -40,7 +40,7 @@ storageClient.setData('products', [
     name: 'Oil',
     EAN: 6656565,
     type: 'fat',
-    weight: '100',
+    weight: '400',
     color: 'yellow',
     checked: false
   },
@@ -49,7 +49,7 @@ storageClient.setData('products', [
     name: 'Fish',
     EAN: 67676767,
     type: 'fish',
-    weight: '100',
+    weight: '200',
     color: 'grey',
     checked: false
   },
@@ -58,7 +58,7 @@ storageClient.setData('products', [
     name: 'Milk',
     EAN: 68686868,
     type: 'milk',
-    weight: '100',
+    weight: '150',
     color: 'white',
     checked: false
   },
@@ -67,7 +67,7 @@ storageClient.setData('products', [
     name: 'Butter',
     EAN: 69696969,
     type: 'fat',
-    weight: '100',
+    weight: '120',
     color: 'yellow',
     checked: false
   },
@@ -85,7 +85,7 @@ storageClient.setData('products', [
     name: 'Legumes',
     EAN: 1313131,
     type: 'vegetables',
-    weight: '100',
+    weight: '200',
     color: 'green',
     checked: false
   },
@@ -94,7 +94,7 @@ storageClient.setData('products', [
     name: 'Yogurt',
     EAN: 1212121,
     type: 'milk',
-    weight: '100',
+    weight: '200',
     color: 'white',
     checked: false
   }

@@ -44,7 +44,10 @@ const List = product => {
 
             <tbody>
               {products.map(product => (
-                <Item product={product} />
+                <Item 
+                key={product.id}
+                product={product} 
+                />
               ))}
             </tbody>
           </Table>

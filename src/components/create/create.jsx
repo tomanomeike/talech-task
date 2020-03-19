@@ -67,7 +67,7 @@ const Create = (product) => {
             Active
           </Form.Label>
         </div>
-        <Button onClick={onCubmit} type='submit' className='btn btn-default mr-1 '>
+        <Button type='submit' className='btn btn-default mr-1 '>
           <span>Save</span>
         </Button>
         <Button 

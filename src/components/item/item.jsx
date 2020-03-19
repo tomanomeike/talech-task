@@ -4,9 +4,11 @@ import Button from 'react-bootstrap/Button';
 import useProducts from '../../storage/use-products';
 import './item.css';
 
+
 const Item = props => {
   const { getProducts, deleteProduct, updateProductStatus } = useProducts();
   const [products, setProducts] = React.useState(getProducts());
+  console.log(props.product.checked);
 
   const onDeleteProduct = id => {
     if (window.confirm('Are you sure?')) {
@@ -32,6 +34,7 @@ const Item = props => {
         <td>{props.product.color}</td>
         <td>
           <input
+          id="billing-checkbox"
             className='form-check-input'
             type='checkbox'
             name='active'
