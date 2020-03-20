@@ -2,32 +2,21 @@ import React from 'react';
 import Button from 'react-bootstrap/Button';
 import { Redirect } from 'react-router-dom';
 import useProducts from '../../storage/use-products';
-import { Link, useParams } from 'react-router-dom';
 import Form from 'react-bootstrap/Form';
-import './create.css'
+import './create.css';
 
-const Create = (product) => {
+const Create = product => {
   const { addProduct } = useProducts();
-  // const { id } = useParams();
-  const [toProduct, setToProduct] = React.useState(false);
+  const [newProduct, setNewProduct] = React.useState(false);
 
-  
   React.useEffect(() => {
-    setToProduct(addProduct(product));
+    setNewProduct(addProduct(product));
   }, [product]);
 
-  const onCubmit = (props) => {
-    if (!!toProduct) {
-      setToProduct('');
-        props.onSubmit(toProduct);
-    } else {
-        window.alert('Enter name');
-    }
-}
-
+ 
   const onSubmit = e => {
     e.preventDefault();
-    
+
     const products = JSON.parse(localStorage.getItem('products') || '[]');
 
     const data = {
@@ -41,14 +30,14 @@ const Create = (product) => {
     };
 
     products.unshift(data);
-    // addProduct(product);
     localStorage.setItem('products', JSON.stringify(products));
-    setToProduct(true);
+    setNewProduct('');
+    onSubmit(newProduct);
   };
 
   return (
     <div className='create'>
-      {toProduct ? <Redirect to='/products' /> : null}
+      {newProduct ? <Redirect to='/products' /> : null}
       <h1>Create new product</h1>
       <Form onSubmit={onSubmit}>
         <Form.Label htmlFor='name'>Name</Form.Label>
@@ -67,12 +56,13 @@ const Create = (product) => {
             Active
           </Form.Label>
         </div>
-        <Button type='submit' className='btn btn-default mr-1 '>
+        <Button
+          type='submit'
+          className='btn btn-default mr-1 '
+        >
           <span>Save</span>
         </Button>
-        <Button 
-        onClick={product.history.goBack}
-         className='btn btn-danger'>
+        <Button onClick={product.history.goBack} className='btn btn-danger'>
           <span>Cancel</span>
         </Button>
       </Form>

@@ -2,5 +2,7 @@
   background-color: #cccccc;
   cursor: not-allowed;
   color:rgb(138, 132, 132);
-  
-}
+  }
+  .product.disabled td button{
+    cursor: not-allowed;
+  }

@@ -1,26 +1,17 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
-import useProducts from '../../storage/use-products';
 import './item.css';
 
-
 const Item = props => {
-  const { getProducts, deleteProduct, updateProductStatus } = useProducts();
-  const [products, setProducts] = React.useState(getProducts());
+  const onDeleteProduct = () => {
+    props.onDeleteProduct(props.product.id);
+  };
+
+  const onUpdateProductStatus = () => {
+    props.onUpdateProductStatus(props.product.id);
+  };
   console.log(props.product.checked);
-
-  const onDeleteProduct = id => {
-    if (window.confirm('Are you sure?')) {
-      deleteProduct(id);
-    }
-    setProducts(getProducts);
-  };
-
-  const onUpdateProductStatus = id => {
-    updateProductStatus(id);
-    setProducts(getProducts);
-  };
   return (
     <React.Fragment>
       <tr
@@ -34,29 +25,34 @@ const Item = props => {
         <td>{props.product.color}</td>
         <td>
           <input
-          id="billing-checkbox"
             className='form-check-input'
             type='checkbox'
             name='active'
-            onClick={() => onUpdateProductStatus(props.product.id)}
+            onClick={onUpdateProductStatus}
           />
         </td>
         <td>
           {' '}
           <Link to={`/products/${props.product.id}`}>
-            <Button className=' btn btn-secondary' disabled={false}>
+            <Button
+              className=' btn btn-secondary'
+              disabled={props.product.checked ? 'disabled' : null}
+            >
               VIEW
             </Button>
           </Link>{' '}
           <Link to={`/products/${props.product.id}/edit`}>
-            <Button className='btn btn-primary' disabled={false}>
+            <Button
+              className='btn btn-primary'
+              disabled={props.product.checked ? 'disabled' : null}
+            >
               EDIT
             </Button>
           </Link>{' '}
           <Button
-            onClick={() => onDeleteProduct(props.product.id)}
+            onClick={onDeleteProduct}
             className='btn btn-danger'
-            disabled={false}
+            disabled={props.product.checked ? 'disabled' : null}
           >
             DELETE
           </Button>

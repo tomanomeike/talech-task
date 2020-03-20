@@ -1,7 +1,4 @@
-input.form-check-input{
-    margin-left: .75rem;
+thead,
+td {
+  text-align: center;
 }
-.product.disabled td {
-    background-color:lightgrey;
-   }
-  

@@ -14,7 +14,7 @@ const Show = props => {
   }, [id]);
 
   return (
-    <div className="item">
+    <div className='item'>
       <h3>{product.name}</h3>
       <p>EAN: {product.EAN}</p>
       <p>Type: {product.type}</p>

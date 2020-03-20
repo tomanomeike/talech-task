@@ -1,26 +1,25 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Table from 'react-bootstrap/Table';
-import Button from 'react-bootstrap/Button';
 import Item from '../item/item';
 import useProducts from '../../storage/use-products';
 import './list.css';
 
-const List = product => {
+const List = () => {
   const { getProducts, deleteProduct, updateProductStatus } = useProducts();
   const [products, setProducts] = React.useState(getProducts());
 
-  // const onDeleteProduct = id => {
-  //   if (window.confirm('Are you sure?')) {
-  //     deleteProduct(id);
-  //   }
-  //   setProducts(getProducts);
-  // };
+  const onDeleteProduct = id => {
+    if (window.confirm('Are you sure?')) {
+      deleteProduct(id);
+      setProducts(getProducts);
+    }
+  };
 
-  // const onUpdateProductStatus = id => {
-  //   updateProductStatus(id);
-  //   setProducts(getProducts);
-  // };
+  const onUpdateProductStatus = id => {
+    updateProductStatus(id);
+    setProducts(getProducts);
+  };
 
   return (
     <React.Fragment>
@@ -44,9 +43,11 @@ const List = product => {
 
             <tbody>
               {products.map(product => (
-                <Item 
-                key={product.id}
-                product={product} 
+                <Item
+                  key={product.id}
+                  product={product}
+                  onDeleteProduct={onDeleteProduct}
+                  onUpdateProductStatus={onUpdateProductStatus}
                 />
               ))}
             </tbody>
