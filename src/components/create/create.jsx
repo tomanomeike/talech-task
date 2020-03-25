@@ -7,7 +7,7 @@ import './create.css';
 
 const Create = product => {
   const { addProduct } = useProducts();
-  const [newProduct, setNewProduct] = React.useState(false);
+  const [newProduct, setNewProduct] = React.useState('');
 
   React.useEffect(() => {
     setNewProduct(addProduct(product));
@@ -15,7 +15,7 @@ const Create = product => {
 
  
   const onSubmit = e => {
-    e.preventDefault();
+    // e.preventDefault();
 
     const products = JSON.parse(localStorage.getItem('products') || '[]');
 
@@ -37,9 +37,11 @@ const Create = product => {
 
   return (
     <div className='create'>
-      {newProduct ? <Redirect to='/products' /> : null}
+      {/* {newProduct ? <Redirect to='/products' /> : null} */}
       <h1>Create new product</h1>
-      <Form onSubmit={onSubmit}>
+      <Form 
+      onSubmit={onSubmit}
+      >
         <Form.Label htmlFor='name'>Name</Form.Label>
         <Form.Control type='text' name='name' />
         <Form.Label htmlFor='name'>EAN</Form.Label>
@@ -71,3 +73,4 @@ const Create = product => {
 };
 
 export default Create;
+

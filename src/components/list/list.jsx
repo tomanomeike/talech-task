@@ -27,7 +27,7 @@ const List = () => {
         <Link className='btn btn-info m-3' to={`/products/create`}>
           Create new
         </Link>
-        {products ? (
+        {products.length !==0 ? (
           <Table>
             <thead>
               <tr>
