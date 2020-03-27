@@ -1,23 +1,14 @@
 import React from 'react';
 import Button from 'react-bootstrap/Button';
-import { Redirect } from 'react-router-dom';
 import useProducts from '../../storage/use-products';
 import Form from 'react-bootstrap/Form';
 import './create.css';
 
-const Create = product => {
+const Create = props => {
   const { addProduct } = useProducts();
-  const [newProduct, setNewProduct] = React.useState('');
 
-  React.useEffect(() => {
-    setNewProduct(addProduct(product));
-  }, [product]);
-
- 
   const onSubmit = e => {
-    // e.preventDefault();
-
-    const products = JSON.parse(localStorage.getItem('products') || '[]');
+    e.preventDefault();
 
     const data = {
       id: Math.floor(Math.random() * Math.floor(100000)),
@@ -29,19 +20,14 @@ const Create = product => {
       active: e.target.active.checked
     };
 
-    products.unshift(data);
-    localStorage.setItem('products', JSON.stringify(products));
-    setNewProduct('');
-    onSubmit(newProduct);
+    addProduct(data);
+    props.history.push('/products');
   };
 
   return (
     <div className='create'>
-      {/* {newProduct ? <Redirect to='/products' /> : null} */}
       <h1>Create new product</h1>
-      <Form 
-      onSubmit={onSubmit}
-      >
+      <Form onSubmit={onSubmit}>
         <Form.Label htmlFor='name'>Name</Form.Label>
         <Form.Control type='text' name='name' />
         <Form.Label htmlFor='name'>EAN</Form.Label>
@@ -58,13 +44,10 @@ const Create = product => {
             Active
           </Form.Label>
         </div>
-        <Button
-          type='submit'
-          className='btn btn-default mr-1 '
-        >
+        <Button type='submit' className='btn btn-default mr-1 '>
           <span>Save</span>
         </Button>
-        <Button onClick={product.history.goBack} className='btn btn-danger'>
+        <Button onClick={props.history.goBack} className='btn btn-danger'>
           <span>Cancel</span>
         </Button>
       </Form>
@@ -73,4 +56,3 @@ const Create = product => {
 };
 
 export default Create;
-
