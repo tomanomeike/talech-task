@@ -6,18 +6,55 @@ import './create.css';
 
 const Create = props => {
   const { addProduct } = useProducts();
+  const [errors, setErrors] = React.useState(null);
 
   const onSubmit = e => {
     e.preventDefault();
 
+    const errors ={};
+    const name = e.target.name.value;
+    const EAN = e.target.EAN.value;
+    const type = e.target.type.value;
+    const weight = e.target.weight.value;
+    const color = e.target.color.value;
+    const active =  e.target.active.checked;
+
+    if (name === undefined || name=== null || name=== ''){
+      errors.name ="*Name is required"
+    }
+   if (EAN === undefined || EAN=== null || EAN=== ''){
+      errors.EAN ="*EAN is required"
+    }
+    if (type === undefined || type=== null || type=== ''){
+      errors.type ="*Type is required"
+    }
+    if (weight === undefined || weight=== null || weight=== ''){
+      errors.weight ="*Weight is required"
+    }
+    if (color === undefined || color=== null || color=== ''){
+      errors.color ="*Color is required"
+    }
+   
+
+
+
+
+    if (Object.keys(errors).length){
+      setErrors(errors);
+      return;
+    } else{
+      setErrors(null);
+    }
+    
+
     const data = {
       id: Math.floor(Math.random() * Math.floor(100000)),
-      name: e.target.name.value,
-      EAN: e.target.EAN.value,
-      type: e.target.type.value,
-      weight: e.target.weight.value,
-      color: e.target.color.value,
-      active: e.target.active.checked
+      name,
+      EAN,
+      type,
+      weight,
+      color,
+      active
     };
 
     addProduct(data);
@@ -30,14 +67,19 @@ const Create = props => {
       <Form onSubmit={onSubmit}>
         <Form.Label htmlFor='name'>Name</Form.Label>
         <Form.Control type='text' name='name' />
+        <div>{errors && errors.name && <span>{errors.name}</span>}</div>
         <Form.Label htmlFor='name'>EAN</Form.Label>
         <Form.Control type='text' name='EAN' />
+        <div>{errors && errors.EAN && <span>{errors.EAN}</span>}</div>
         <Form.Label htmlFor='name'>Type</Form.Label>
         <Form.Control type='text' name='type' />
+        <div>{errors && errors.type && <span>{errors.type}</span>}</div>
         <Form.Label htmlFor='name'>Weight</Form.Label>
         <Form.Control type='text' name='weight' />
+        <div>{errors && errors.weight && <span>{errors.weight}</span>}</div>
         <Form.Label htmlFor='name'>Color</Form.Label>
         <Form.Control type='text' name='color' />
+        <div>{errors && errors.color && <span>{errors.color}</span>}</div>
         <div className='form-group form-check'>
           <input type='checkbox' className='form-check-input' name='active' />
           <Form.Label className='form-check-label' htmlFor='active'>
