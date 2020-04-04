@@ -17,6 +17,9 @@ const Create = props => {
     const type = e.target.type.value;
     const weight = e.target.weight.value;
     const color = e.target.color.value;
+    const quantity = e.target.quantity.value;
+    const price = e.target.price.value;
+    
     const active =  e.target.active.checked;
 
     if (name === undefined || name=== null || name=== ''){
@@ -33,6 +36,12 @@ const Create = props => {
     }
     if (color === undefined || color=== null || color=== ''){
       errors.color ="*Color is required"
+    }
+    if (quantity === undefined || quantity=== null || quantity=== ''){
+      errors.quantity ="*Quantity is required"
+    }
+    if (price === undefined || price=== null || price=== ''){
+      errors.price ="*Price is required"
     }
    
 
@@ -54,6 +63,8 @@ const Create = props => {
       type,
       weight,
       color,
+      quantity,
+      price,
       active
     };
 
@@ -80,6 +91,12 @@ const Create = props => {
         <Form.Label htmlFor='name'>Color</Form.Label>
         <Form.Control type='text' name='color' />
         <div>{errors && errors.color && <span>{errors.color}</span>}</div>
+        <Form.Label htmlFor='name'>Quantity</Form.Label>
+        <Form.Control type='text' name='quantity' />
+        <div>{errors && errors.quantity && <span>{errors.quantity}</span>}</div>
+        <Form.Label htmlFor='name'>Price</Form.Label>
+        <Form.Control type='text' name='price' />
+        <div>{errors && errors.price && <span>{errors.price}</span>}</div>
         <div className='form-group form-check'>
           <input type='checkbox' className='form-check-input' name='active' />
           <Form.Label className='form-check-label' htmlFor='active'>

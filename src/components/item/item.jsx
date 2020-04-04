@@ -15,7 +15,10 @@ const Item = props => {
   return (
     <React.Fragment>
       <tr
-        className={props.product.checked ? 'product disabled' : 'product'}
+        className={
+          props.product.checked ? 'product disabled': 'product' 
+          && props.product.price == 0 ? 'item highlighted': 'item '
+        }
         key={props.product.id}
       >
         <td>{props.product.name}</td>
@@ -23,6 +26,8 @@ const Item = props => {
         <td>{props.product.type}</td>
         <td>{props.product.weight}</td>
         <td>{props.product.color}</td>
+        <td>{props.product.quantity}</td>
+        <td>{props.product.price}</td>
         <td>
           <input
             className='form-check-input'
@@ -58,7 +63,6 @@ const Item = props => {
           </Button>
         </td>
       </tr>
-  
     </React.Fragment>
   );
 };

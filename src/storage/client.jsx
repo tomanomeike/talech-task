@@ -15,6 +15,8 @@ storageClient.setData('products', [
     type: 'pasta',
     weight: '100',
     color: 'yellow',
+    quantity:3,
+    price:0,
     checked: false
   },
   {
@@ -24,6 +26,8 @@ storageClient.setData('products', [
     type: 'vegetables',
     weight: '200',
     color: 'red',
+    quantity:3,
+    price:20,
     checked: false
   },
   {
@@ -33,6 +37,8 @@ storageClient.setData('products', [
     type: 'meat',
     weight: '300',
     color: 'red',
+    quantity:3,
+    price:20,
     checked: false
   },
   {
@@ -42,6 +48,8 @@ storageClient.setData('products', [
     type: 'fat',
     weight: '400',
     color: 'yellow',
+    quantity:3,
+    price:20,
     checked: false
   },
   {
@@ -51,6 +59,8 @@ storageClient.setData('products', [
     type: 'fish',
     weight: '200',
     color: 'grey',
+    quantity:3,
+    price:20,
     checked: false
   },
   {
@@ -60,6 +70,8 @@ storageClient.setData('products', [
     type: 'milk',
     weight: '150',
     color: 'white',
+    quantity:3,
+    price:20,
     checked: false
   },
   {
@@ -69,6 +81,8 @@ storageClient.setData('products', [
     type: 'fat',
     weight: '120',
     color: 'yellow',
+    quantity:3,
+    price:20,
     checked: false
   },
   {
@@ -78,6 +92,8 @@ storageClient.setData('products', [
     type: 'eggs',
     weight: '100',
     color: 'white',
+    quantity:3,
+    price:20,
     checked: false
   },
   {
@@ -87,6 +103,8 @@ storageClient.setData('products', [
     type: 'vegetables',
     weight: '200',
     color: 'green',
+    quantity:3,
+    price:20,
     checked: false
   },
   {
@@ -96,6 +114,8 @@ storageClient.setData('products', [
     type: 'milk',
     weight: '200',
     color: 'white',
+    quantity:3,
+    price:20,
     checked: false
   }
 ]);

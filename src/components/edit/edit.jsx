@@ -14,6 +14,8 @@ const Edit = props => {
     type: '',
     weight: '',
     color: '',
+    quantity: '',
+    price: '',
     active: ''
   });
   const { getProductById } = useProducts();
@@ -90,6 +92,20 @@ const Edit = props => {
           name='color'
           onChange={onChange}
           value={inputValue.color}
+        />
+         <Form.Label htmlFor='name'>Color</Form.Label>
+        <Form.Control
+          type='text'
+          name='quantity'
+          onChange={onChange}
+          value={inputValue.quantity}
+        />
+          <Form.Label htmlFor='name'>Color</Form.Label>
+        <Form.Control
+          type='text'
+          name='price'
+          onChange={onChange}
+          value={inputValue.price}
         />
         <div className='form-group form-check'>
           <input

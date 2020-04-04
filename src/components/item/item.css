@@ -6,3 +6,6 @@
   .product.disabled td button{
     cursor: not-allowed;
   }
+  .item.highlighted{
+    background-color: #ffffb9;
+  }

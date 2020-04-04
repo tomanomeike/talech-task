@@ -14,16 +14,19 @@ const Show = props => {
   }, [id]);
 
   return (
-    <div className='item'>
+    <div className={product.price==0 ? 'item highlighted' : 'item'}>
       <h3>{product.name}</h3>
       <p>EAN: {product.EAN}</p>
       <p>Type: {product.type}</p>
       <p>Weight: {product.weight}</p>
       <p>Color: {product.color}</p>
+      <p>quantity: {product.quantity}</p>
+      <p>price: {product.price}</p>
 
       <Link className='btn btn-primary mr-2' to={`/products/${id}/edit`}>
         Edit product
       </Link>
+    
       <Button className='btn btn-danger' onClick={props.history.goBack}>
         <span>Cancel</span>
       </Button>
