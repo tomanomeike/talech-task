@@ -17,7 +17,7 @@ const Item = props => {
       <tr
         className={
           props.product.checked ? 'product disabled': 'product' 
-          && props.product.price == 0 ? 'item highlighted': 'item '
+          && props.product.price === 0 ? 'item highlighted': 'item '
         }
         key={props.product.id}
       >
