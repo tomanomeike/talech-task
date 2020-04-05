@@ -4,57 +4,59 @@ import useProducts from '../../storage/use-products';
 import Form from 'react-bootstrap/Form';
 import './create.css';
 
-const Create = props => {
+const Create = (props) => {
   const { addProduct } = useProducts();
   const [errors, setErrors] = React.useState(null);
 
-  const onSubmit = e => {
+  const onSubmit = (e) => {
     e.preventDefault();
 
-    const errors ={};
+    const errors = {};
     const name = e.target.name.value;
     const EAN = e.target.EAN.value;
     const type = e.target.type.value;
     const weight = e.target.weight.value;
     const color = e.target.color.value;
     const quantity = e.target.quantity.value;
-    const price = e.target.price.value;
-    
-    const active =  e.target.active.checked;
+    const price = e.target.price.value
+    const priceHistory = [e.target.price.value];
 
-    if (name === undefined || name=== null || name=== ''){
-      errors.name ="*Name is required"
-    }
-   if (EAN === undefined || EAN=== null || EAN=== ''){
-      errors.EAN ="*EAN is required"
-    }
-    if (type === undefined || type=== null || type=== ''){
-      errors.type ="*Type is required"
-    }
-    if (weight === undefined || weight=== null || weight=== ''){
-      errors.weight ="*Weight is required"
-    }
-    if (color === undefined || color=== null || color=== ''){
-      errors.color ="*Color is required"
-    }
-    if (quantity === undefined || quantity=== null || quantity=== ''){
-      errors.quantity ="*Quantity is required"
-    }
-    if (price === undefined || price=== null || price=== ''){
-      errors.price ="*Price is required"
-    }
-   
+    console.log(priceHistory);
 
+    const active = e.target.active.checked;
 
+    if (name === undefined || name === null || name === '') {
+      errors.name = '*Name is required';
+    }
+    if (EAN === undefined || EAN === null || EAN === '') {
+      errors.EAN = '*EAN is required';
+    }
+    if (type === undefined || type === null || type === '') {
+      errors.type = '*Type is required';
+    }
+    if (weight === undefined || weight === null || weight === '') {
+      errors.weight = '*Weight is required';
+    }
+    if (color === undefined || color === null || color === '') {
+      errors.color = '*Color is required';
+    }
+    if (quantity === undefined || quantity === null || quantity === '') {
+      errors.quantity = '*Quantity is required';
+    }
+    if (
+      priceHistory === undefined ||
+      priceHistory === null ||
+      priceHistory === ''
+    ) {
+      errors.price = '*Price is required';
+    }
 
-
-    if (Object.keys(errors).length){
+    if (Object.keys(errors).length) {
       setErrors(errors);
       return;
-    } else{
+    } else {
       setErrors(null);
     }
-    
 
     const data = {
       id: Math.floor(Math.random() * Math.floor(100000)),
@@ -65,8 +67,20 @@ const Create = props => {
       color,
       quantity,
       price,
-      active
+      priceHistory,
+      active,
     };
+
+    // const data = {
+    //   id: Math.floor(Math.random() * Math.floor(100000)),
+    //   name: e.target.name.value,
+    //   EAN: e.target.EAN.value,
+    //   type: e.target.type.value,
+    //   weight: e.target.weight.value,
+    //   color: e.target.color.value,
+    //   active: e.target.active.checked,
+    //   priceHistory: [e.target.value]
+    // };
 
     addProduct(data);
     props.history.push('/products');

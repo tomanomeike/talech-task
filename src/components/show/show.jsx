@@ -4,10 +4,14 @@ import useProducts from '../../storage/use-products';
 import Button from 'react-bootstrap/Button';
 import './show.css';
 
+
+
+
 const Show = (props) => {
   const { id } = useParams();
   const [product, setProduct] = React.useState({});
   const { getProductById } = useProducts();
+
 
   React.useEffect(() => {
     setProduct(getProductById(id));
@@ -26,12 +30,7 @@ const Show = (props) => {
       <Link className='btn btn-primary mr-2' to={`/products/${id}/edit`}>
         Edit product
       </Link>
-      <Link className='btn btn-info mr-2' to={`/products/${id}/priceHistory`}>
-       Price history
-      </Link>
-      <Link className='btn btn-info mr-2' to={`/products/${id}/quantityHistory`}>
-      Quantity History
-      </Link>
+     
 
       <Button className='btn btn-danger' onClick={props.history.goBack}>
         <span>Cancel</span>

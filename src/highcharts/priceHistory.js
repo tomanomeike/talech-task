@@ -2,6 +2,7 @@ import React from 'react';
 import Highcharts from 'highcharts/highstock';
 import HighchartsReact from 'highcharts-react-official';
 
+
 const options = {
     chart: {
       type: 'spline'
@@ -11,7 +12,7 @@ const options = {
     },
     series: [
       {
-        data: [1, 2, 1, 4, 3, 6]
+        data: product.priceHistory
       }
     ]
   };

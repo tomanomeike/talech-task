@@ -3,9 +3,9 @@ import { useParams, Redirect } from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import useProducts from '../../storage/use-products';
-import './edit.css'
+import './edit.css';
 
-const Edit = props => {
+const Edit = (props) => {
   const { id } = useParams();
   const [newProduct, setNewProduct] = React.useState(false);
   const [inputValue, setInputValue] = React.useState({
@@ -16,40 +16,62 @@ const Edit = props => {
     color: '',
     quantity: '',
     price: '',
-    active: ''
+    active: '',
   });
   const { getProductById } = useProducts();
 
- 
   React.useEffect(() => {
     setInputValue(getProductById(id));
   }, [id]);
 
-  const onSubmit = e => {
+  const onSubmit = (e) => {
     e.preventDefault();
     const productList = JSON.parse(localStorage.getItem('products'));
-    const products = productList.filter(product => product.id !== Number(id));
-
+    const products = productList.filter((product) => product.id !== Number(id));
+ 
+    // const editedProduct = {
+    //   id,
+    //   ...inputValue
+    // };
     const editedProduct = {
       id,
-      ...inputValue
+      ...inputValue,
+      priceHistory: [...inputValue.priceHistory, inputValue.price],
     };
+
+    // if (priceHasChanged) {
+    //   // add to array new price
+
+    //   if (priceHistory > 5) {
+    //     priceHistory.pop();
+    //   }
+    //   //  array is larger than X, remove last item from array
+    // }
+
+
+    // if (inputValue.priceHistory[0]===inputValue.priceHistory[4]){
+    //   inputValue.priceHistory.push();
+    //   if(inputValue.priceHistory.length>5){
+    //     inputValue.priceHistory.pop()
+    //   }
+    // }
+   
 
     const editedProductList = [editedProduct, ...products];
     localStorage.setItem('products', JSON.stringify(editedProductList));
     setNewProduct(true);
   };
 
-  const onChange = e => {
+  const onChange = (e) => {
     if (e.currentTarget.type === 'checkbox') {
       setInputValue({
         ...inputValue,
-        [e.currentTarget.name]: e.currentTarget.checked
+        [e.currentTarget.name]: e.currentTarget.checked,
       });
     } else
       setInputValue({
         ...inputValue,
-        [e.currentTarget.name]: e.currentTarget.value
+        [e.currentTarget.name]: e.currentTarget.value,
       });
   };
 
@@ -93,14 +115,14 @@ const Edit = props => {
           onChange={onChange}
           value={inputValue.color}
         />
-         <Form.Label htmlFor='name'>Color</Form.Label>
+        <Form.Label htmlFor='name'>Quantity</Form.Label>
         <Form.Control
           type='text'
           name='quantity'
           onChange={onChange}
           value={inputValue.quantity}
         />
-          <Form.Label htmlFor='name'>Color</Form.Label>
+        <Form.Label htmlFor='name'>Price</Form.Label>
         <Form.Control
           type='text'
           name='price'
@@ -127,8 +149,6 @@ const Edit = props => {
           <span>Cancel</span>
         </Button>
       </Form>
-      
-      
     </div>
   );
 };
