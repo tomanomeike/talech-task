@@ -3,7 +3,8 @@ import Highcharts from 'highcharts/highstock';
 import HighchartsReact from 'highcharts-react-official';
 
 
-const options = {
+const PriceHistory = (props) => {
+  const options = {
     chart: {
       type: 'spline'
     },
@@ -12,15 +13,13 @@ const options = {
     },
     series: [
       {
-        data: product.priceHistory
+        data: props.prices
       }
     ]
   };
-
-const PriceHistory = () => (
-  <div>
+  return<div>
    <HighchartsReact highcharts={Highcharts} options={options} />
   </div>
-);
+};
 
 export default PriceHistory;
