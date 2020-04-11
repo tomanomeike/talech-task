@@ -4,6 +4,7 @@ import HighchartsReact from 'highcharts-react-official';
 
 
 const PriceHistory = (props) => {
+  console.log((props.prices || []).map((price) => Number(price)));
   const options = {
     chart: {
       type: 'spline'
@@ -13,7 +14,9 @@ const PriceHistory = (props) => {
     },
     series: [
       {
-        data: props.prices
+        data:(props.prices || []).map((price) => Number(price))
+        // data: props.prices
+        // data:  [10, 2, 1, 4, 3, 6]
       }
     ]
   };

@@ -19,7 +19,6 @@ const Edit = (props) => {
     active: '',
   });
   const { getProductById } = useProducts();
-
   React.useEffect(() => {
     setInputValue(getProductById(id));
   }, [id]);

@@ -11,7 +11,7 @@ const Item = props => {
   const onUpdateProductStatus = () => {
     props.onUpdateProductStatus(props.product.id);
   };
-  console.log(props.product.checked);
+  // console.log(props.product.checked);
   return (
     <React.Fragment>
       <tr
