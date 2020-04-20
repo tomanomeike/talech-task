@@ -16,6 +16,7 @@ storageClient.setData('products', [
     weight: '100',
     color: 'yellow',
     quantity:3,
+    quantityHistory: [3],
     price:0,
     priceHistory: [0],
     checked: false
@@ -28,6 +29,7 @@ storageClient.setData('products', [
     weight: '200',
     color: 'red',
     quantity:3,
+    quantityHistory: [3],
     price:20,
     priceHistory: [20],
     checked: false
@@ -40,6 +42,7 @@ storageClient.setData('products', [
     weight: '300',
     color: 'red',
     quantity:3,
+    quantityHistory: [3],
     price:30,
     priceHistory: [30],
     checked: false
@@ -52,6 +55,7 @@ storageClient.setData('products', [
     weight: '400',
     color: 'yellow',
     quantity:3,
+    quantityHistory: [3],
     price:40,
     priceHistory: [40],
     checked: false
@@ -64,6 +68,7 @@ storageClient.setData('products', [
     weight: '200',
     color: 'grey',
     quantity:3,
+    quantityHistory: [3],
     price:50,
     priceHistory: [50],
     checked: false
@@ -76,6 +81,7 @@ storageClient.setData('products', [
     weight: '150',
     color: 'white',
     quantity:3,
+    quantityHistory: [3],
     price:60,
     priceHistory: [60],
     checked: false
@@ -88,6 +94,7 @@ storageClient.setData('products', [
     weight: '120',
     color: 'yellow',
     quantity:3,
+    quantityHistory: [3],
     price:70,
     priceHistory: [70],
     checked: false
@@ -100,6 +107,7 @@ storageClient.setData('products', [
     weight: '100',
     color: 'white',
     quantity:3,
+    quantityHistory: [3],
     price:80,
     priceHistory: [80],
     checked: false
@@ -112,6 +120,7 @@ storageClient.setData('products', [
     weight: '200',
     color: 'green',
     quantity:3,
+    quantityHistory: [3],
     price:90,
     priceHistory: [90],
     checked: false
@@ -124,6 +133,7 @@ storageClient.setData('products', [
     weight: '200',
     color: 'white',
     quantity:3,
+    quantityHistory: [3],
     price:90,
     priceHistory: [90],
     checked: false

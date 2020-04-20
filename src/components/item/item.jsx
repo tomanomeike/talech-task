@@ -28,12 +28,6 @@ const Item = props => {
         <td>{props.product.color}</td>
         <td>{props.product.quantity}</td>
         <td>{props.product.price}</td>
-        <td> <Link className='btn btn-info mr-2' to={`/products/${props.product.id}/priceHistory`}>
-       Price history
-      </Link>
-      <Link className='btn btn-info mr-2' to={`/products/${props.product.id}/quantityHistory`}>
-      Quantity History
-      </Link></td>
         <td>
           <input
             className='form-check-input'

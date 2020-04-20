@@ -2,7 +2,8 @@ import React from 'react';
 import { Link, useParams } from 'react-router-dom';
 import useProducts from '../../storage/use-products';
 import Button from 'react-bootstrap/Button';
-import PriceHistory from '../../highcharts/priceHistory'
+import PriceHistory from '../../highcharts/priceHistory';
+import QuantityHistory from '../../highcharts/quantityHistory';
 import './show.css';
 
 const Show = (props) => {
@@ -23,7 +24,6 @@ const Show = (props) => {
       <p>Color: {product.color}</p>
       <p>quantity: {product.quantity}</p>
       <p>price: {product.price}</p>
-      <PriceHistory prices={product.priceHistory} />
 
       <Link className='btn btn-primary mr-2' to={`/products/${id}/edit`}>
         Edit product
@@ -32,6 +32,9 @@ const Show = (props) => {
       <Button className='btn btn-danger' onClick={props.history.goBack}>
         <span>Cancel</span>
       </Button>
+     
+      <PriceHistory prices={product.priceHistory} />
+      <QuantityHistory quantitys={product.quantityHistory} />
     </div>
   );
 };

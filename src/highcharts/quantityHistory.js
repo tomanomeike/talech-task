@@ -2,6 +2,7 @@ import React from 'react';
 import Highcharts from 'highcharts/highstock';
 import HighchartsReact from 'highcharts-react-official';
 
+const QuantityHistory = (props) => {
 const options = {
     chart: {
       type: 'spline'
@@ -11,15 +12,16 @@ const options = {
     },
     series: [
       {
-        data: [10, 2, 1, 4, 3, 6]
+        data: (props.quantitys || []).map((quantity) => Number(quantity)),
       }
     ]
   };
 
-const QuantityHistory = () => (
+return(
   <div>
    <HighchartsReact highcharts={Highcharts} options={options} />
   </div>
 );
+};
 
 export default QuantityHistory;

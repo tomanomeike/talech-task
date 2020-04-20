@@ -18,6 +18,7 @@ const Create = (props) => {
     const weight = e.target.weight.value;
     const color = e.target.color.value;
     const quantity = e.target.quantity.value;
+    const quantityHistory = [e.target.quantity.value];
     const price = e.target.price.value
     const priceHistory = [e.target.price.value];
 
@@ -66,6 +67,7 @@ const Create = (props) => {
       weight,
       color,
       quantity,
+      quantityHistory,
       price,
       priceHistory,
       active,

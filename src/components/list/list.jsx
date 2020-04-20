@@ -38,7 +38,6 @@ const List = () => {
                 <th>Color</th>
                 <th>Quantity</th>
                 <th>Price</th>
-                <th>History</th>
                 <th>Active</th>
                 <th>Action</th>
               </tr>
