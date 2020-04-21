@@ -47,9 +47,9 @@ const Edit = (props) => {
 
     if (inputValue.priceHistory[0]===inputValue.priceHistory[4]){
       inputValue.priceHistory.push();
-      if(inputValue.priceHistory.length>5){
-        inputValue.priceHistory.pop()
-      
+      if(priceHistoryLength>5){
+        inputValue.priceHistory.shift()
+     
       }
     }
     console.log(inputValue.priceHistory)
