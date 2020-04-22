@@ -27,33 +27,31 @@ const Edit = (props) => {
     e.preventDefault();
     const productList = JSON.parse(localStorage.getItem('products'));
     const products = productList.filter((product) => product.id !== Number(id));
-    const priceHistoryLength= productList.map((product)=>(product.priceHistory.length));
+    const priceHistory = [...inputValue.priceHistory];
+    const lastPrice = priceHistory[priceHistory.length-1];
+    const quantityHistory = [...inputValue.quantityHistory];
+    const lastQuantity = quantityHistory[quantityHistory.length-1];
+
+    if(lastPrice !==inputValue.price){
+      priceHistory.push(inputValue.price);
+      if(priceHistory.length>5){
+        priceHistory.shift();
+      }
+    }
+
+    if(lastQuantity !==inputValue.quantity){
+      quantityHistory.push(inputValue.quantity);
+      if(quantityHistory.length>5){
+        quantityHistory.shift();
+      }
+    }
   
     const editedProduct = {
       id,
       ...inputValue,
-      priceHistory: [...inputValue.priceHistory, inputValue.price],
+      priceHistory:[...priceHistory],
       quantityHistory: [...inputValue.quantityHistory, inputValue.quantity]
     };
-
-    // if (priceHasChanged) {
-    //   // add to array new price
-
-      // if (priceHistory.length > 5) {
-      //   priceHistory.pop();
-      // }
-      //  array is larger than X, remove last item from array
-    // }
-
-    if (inputValue.priceHistory[0]===inputValue.priceHistory[4]){
-      inputValue.priceHistory.push();
-      if(priceHistoryLength>5){
-        inputValue.priceHistory.shift()
-     
-      }
-    }
-    console.log(inputValue.priceHistory)
-
 
     const editedProductList = [editedProduct, ...products];
     localStorage.setItem('products', JSON.stringify(editedProductList));
