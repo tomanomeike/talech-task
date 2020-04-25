@@ -49,8 +49,8 @@ const Edit = (props) => {
     const editedProduct = {
       id,
       ...inputValue,
-      priceHistory:[...priceHistory],
-      quantityHistory: [...inputValue.quantityHistory, inputValue.quantity]
+      priceHistory:[{...priceHistory,date: new Date() }],
+      quantityHistory: [...quantityHistory]
     };
 
     const editedProductList = [editedProduct, ...products];

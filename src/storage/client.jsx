@@ -18,7 +18,7 @@ storageClient.setData('products', [
     quantity:3,
     quantityHistory: [3],
     price:0,
-    priceHistory: [0],
+    priceHistory:[{price: 0, date: '2020-04-22' }],
     checked: false
   },
   {
