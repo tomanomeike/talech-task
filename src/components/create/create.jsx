@@ -20,7 +20,7 @@ const Create = (props) => {
     const quantity = e.target.quantity.value;
     const quantityHistory = [e.target.quantity.value];
     const price = e.target.price.value
-    const priceHistory = [e.target.price.value];
+    const priceHistory = [{price: e.target.price.value, date: new Date() }]
 
     console.log(priceHistory);
 
