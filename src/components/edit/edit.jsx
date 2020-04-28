@@ -27,30 +27,31 @@ const Edit = (props) => {
     e.preventDefault();
     const productList = JSON.parse(localStorage.getItem('products'));
     const products = productList.filter((product) => product.id !== Number(id));
-    const priceHistory = [...inputValue.priceHistory];
-    const lastPrice = priceHistory[priceHistory.length-1];
+    // const priceHistory = [...inputValue.priceHistory];
+    const priceHistory = [{price: e.target.price.value, date: new Date() }]
+    const lastPrice = priceHistory[priceHistory.length - 1];
     const quantityHistory = [...inputValue.quantityHistory];
-    const lastQuantity = quantityHistory[quantityHistory.length-1];
+    const lastQuantity = quantityHistory[quantityHistory.length - 1];
 
-    if(lastPrice !==inputValue.price){
-      priceHistory.push(inputValue.price);
-      if(priceHistory.length>5){
+    if (lastPrice !== inputValue.price) {
+      priceHistory.push({price:inputValue.price, date: new Date()});
+      if (priceHistory.length > 5) {
         priceHistory.shift();
       }
     }
 
-    if(lastQuantity !==inputValue.quantity){
+    if (lastQuantity !== inputValue.quantity) {
       quantityHistory.push(inputValue.quantity);
-      if(quantityHistory.length>5){
+      if (quantityHistory.length > 5) {
         quantityHistory.shift();
       }
     }
-  
+
     const editedProduct = {
       id,
       ...inputValue,
-      priceHistory:[{...priceHistory,date: new Date() }],
-      quantityHistory: [...quantityHistory]
+      priceHistory: [...priceHistory],
+      quantityHistory: [...quantityHistory],
     };
 
     const editedProductList = [editedProduct, ...products];
