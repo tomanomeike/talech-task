@@ -32,7 +32,7 @@ const Show = (props) => {
       <Button className='btn btn-danger' onClick={props.history.goBack}>
         <span>Cancel</span>
       </Button>
-     
+
       <PriceHistory prices={product.priceHistory} />
       <QuantityHistory quantitys={product.quantityHistory} />
     </div>

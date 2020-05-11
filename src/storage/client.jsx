@@ -2,9 +2,9 @@ const storageClient = {
   setData: (key, data) => {
     localStorage.setItem(key, JSON.stringify(data));
   },
-  getData: key => {
+  getData: (key) => {
     return JSON.parse(localStorage.getItem(key));
-  }
+  },
 };
 
 storageClient.setData('products', [
@@ -15,37 +15,37 @@ storageClient.setData('products', [
     type: 'pasta',
     weight: '100',
     color: 'yellow',
-    quantity:3,
+    quantity: 3,
     quantityHistory: [3],
-    price:0,
-    priceHistory:[{price: 0, date: '2020-04-22' }],
-    checked: false
+    price: 0,
+    priceHistory: [{ price: 0, date: '2020-04-22' }],
+    checked: false,
   },
   {
     id: 2,
     name: 'Potatoes',
-    EAN:6363363,
+    EAN: 6363363,
     type: 'vegetables',
     weight: '200',
     color: 'red',
-    quantity:3,
+    quantity: 3,
     quantityHistory: [3],
-    price:20,
+    price: 20,
     priceHistory: [20],
-    checked: false
+    checked: false,
   },
   {
     id: 3,
     name: 'Meat',
-    EAN:646464,
+    EAN: 646464,
     type: 'meat',
     weight: '300',
     color: 'red',
-    quantity:3,
+    quantity: 3,
     quantityHistory: [3],
-    price:30,
+    price: 30,
     priceHistory: [30],
-    checked: false
+    checked: false,
   },
   {
     id: 4,
@@ -54,11 +54,11 @@ storageClient.setData('products', [
     type: 'fat',
     weight: '400',
     color: 'yellow',
-    quantity:3,
+    quantity: 3,
     quantityHistory: [3],
-    price:40,
+    price: 40,
     priceHistory: [40],
-    checked: false
+    checked: false,
   },
   {
     id: 5,
@@ -67,11 +67,11 @@ storageClient.setData('products', [
     type: 'fish',
     weight: '200',
     color: 'grey',
-    quantity:3,
+    quantity: 3,
     quantityHistory: [3],
-    price:50,
+    price: 50,
     priceHistory: [50],
-    checked: false
+    checked: false,
   },
   {
     id: 6,
@@ -80,11 +80,11 @@ storageClient.setData('products', [
     type: 'milk',
     weight: '150',
     color: 'white',
-    quantity:3,
+    quantity: 3,
     quantityHistory: [3],
-    price:60,
+    price: 60,
     priceHistory: [60],
-    checked: false
+    checked: false,
   },
   {
     id: 7,
@@ -93,11 +93,11 @@ storageClient.setData('products', [
     type: 'fat',
     weight: '120',
     color: 'yellow',
-    quantity:3,
+    quantity: 3,
     quantityHistory: [3],
-    price:70,
+    price: 70,
     priceHistory: [70],
-    checked: false
+    checked: false,
   },
   {
     id: 8,
@@ -106,11 +106,11 @@ storageClient.setData('products', [
     type: 'eggs',
     weight: '100',
     color: 'white',
-    quantity:3,
+    quantity: 3,
     quantityHistory: [3],
-    price:80,
+    price: 80,
     priceHistory: [80],
-    checked: false
+    checked: false,
   },
   {
     id: 9,
@@ -119,11 +119,11 @@ storageClient.setData('products', [
     type: 'vegetables',
     weight: '200',
     color: 'green',
-    quantity:3,
+    quantity: 3,
     quantityHistory: [3],
-    price:90,
+    price: 90,
     priceHistory: [90],
-    checked: false
+    checked: false,
   },
   {
     id: 10,
@@ -132,12 +132,12 @@ storageClient.setData('products', [
     type: 'milk',
     weight: '200',
     color: 'white',
-    quantity:3,
+    quantity: 3,
     quantityHistory: [3],
-    price:90,
+    price: 90,
     priceHistory: [90],
-    checked: false
-  }
+    checked: false,
+  },
 ]);
 storageClient.getData('products');
 

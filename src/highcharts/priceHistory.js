@@ -2,7 +2,6 @@ import React from 'react';
 import Highcharts from 'highcharts/highstock';
 import HighchartsReact from 'highcharts-react-official';
 
-
 const PriceHistory = (props) => {
   const options = {
     chart: {
@@ -13,7 +12,7 @@ const PriceHistory = (props) => {
     },
     series: [
       {
-        data: (props.prices || []).map((price) => Number(price)),
+        data: (props.prices || []).map((price) => Number(price.price)),
       },
     ],
   };

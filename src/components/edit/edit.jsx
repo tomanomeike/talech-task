@@ -27,8 +27,7 @@ const Edit = (props) => {
     e.preventDefault();
     const productList = JSON.parse(localStorage.getItem('products'));
     const products = productList.filter((product) => product.id !== Number(id));
-    // const priceHistory = [...inputValue.priceHistory];
-    const priceHistory = [{price: e.target.price.value, date: new Date() }]
+    const priceHistory = [...inputValue.priceHistory];
     const lastPrice = priceHistory[priceHistory.length - 1];
     const quantityHistory = [...inputValue.quantityHistory];
     const lastQuantity = quantityHistory[quantityHistory.length - 1];
